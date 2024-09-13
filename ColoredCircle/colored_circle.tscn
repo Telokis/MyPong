@@ -6,4 +6,6 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ik770")
-center = Vector2(0, 0)
+filled = null
+width = null
+antialiased = null
