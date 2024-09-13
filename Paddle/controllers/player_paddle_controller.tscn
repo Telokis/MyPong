@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cull833l5nuqp"]
+
+[ext_resource type="Script" path="res://Paddle/controllers/player_paddle_controller.gd" id="1_clihc"]
+
+[node name="PlayerPaddleController" type="Node"]
+script = ExtResource("1_clihc")

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://behcs06e32rua"]
+
+[ext_resource type="PackedScene" uid="uid://cnexeijychkll" path="res://World/world.tscn" id="1_wgw03"]
+[ext_resource type="PackedScene" uid="uid://cd6jcl20khgyf" path="res://Goal/goal.tscn" id="2_mgkcf"]
+[ext_resource type="PackedScene" uid="uid://b0fuclmjow86b" path="res://Paddle/paddle.tscn" id="3_58kbs"]
+[ext_resource type="PackedScene" uid="uid://cull833l5nuqp" path="res://Paddle/controllers/player_paddle_controller.tscn" id="4_fxn4u"]
+[ext_resource type="PackedScene" uid="uid://dq5korusp4lv3" path="res://Ball/ball.tscn" id="5_7ddw6"]
+[ext_resource type="PackedScene" uid="uid://bgugp4up576wn" path="res://ui/ui.tscn" id="6_ie3hu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1cn8"]
+size = Vector2(173, 1080)
+
+[node name="Game" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_wgw03")]
+
+[node name="LeftSide" type="Node" parent="."]
+
+[node name="LeftGoal" parent="LeftSide" instance=ExtResource("2_mgkcf")]
+position = Vector2(87, 540)
+scores_for = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSide/LeftGoal"]
+shape = SubResource("RectangleShape2D_g1cn8")
+
+[node name="Player1" parent="LeftSide" instance=ExtResource("3_58kbs")]
+position = Vector2(192, 540)
+
+[node name="PlayerPaddleController" parent="LeftSide/Player1" node_paths=PackedStringArray("paddle") instance=ExtResource("4_fxn4u")]
+paddle = NodePath("..")
+speed = 500.0
+up_input = "move_up"
+down_input = "move_down"
+
+[node name="RightSide" type="Node" parent="."]
+
+[node name="Player2" parent="RightSide" instance=ExtResource("3_58kbs")]
+position = Vector2(1728, 540)
+
+[node name="RightGoal" parent="RightSide" instance=ExtResource("2_mgkcf")]
+position = Vector2(1833, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSide/RightGoal"]
+shape = SubResource("RectangleShape2D_g1cn8")
+
+[node name="Ball" parent="." instance=ExtResource("5_7ddw6")]
+position = Vector2(960, 540)
+radius = 10.0
+speed = 500.0
+
+[node name="UI" parent="." instance=ExtResource("6_ie3hu")]
