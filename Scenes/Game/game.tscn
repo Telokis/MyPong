@@ -37,6 +37,12 @@ down_input = "move_down"
 [node name="Player2" parent="RightSide" instance=ExtResource("3_58kbs")]
 position = Vector2(1728, 540)
 
+[node name="PlayerPaddleController" parent="RightSide/Player2" node_paths=PackedStringArray("paddle") instance=ExtResource("4_fxn4u")]
+paddle = NodePath("..")
+speed = 500.0
+up_input = "move_up2"
+down_input = "move_down2"
+
 [node name="RightGoal" parent="RightSide" instance=ExtResource("2_mgkcf")]
 position = Vector2(1833, 540)
 
