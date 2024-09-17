@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cw45l3bp8f0il"]
+
+[resource]
+HugeButton/base_type = &"Button"
+HugeButton/font_sizes/font_size = 74
+HugeLabel/base_type = &"Label"
+HugeLabel/font_sizes/font_size = 80

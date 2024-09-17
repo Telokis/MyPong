@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://behcs06e32rua"]
+[gd_scene load_steps=10 format=3 uid="uid://behcs06e32rua"]
 
+[ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_mxu7i"]
 [ext_resource type="PackedScene" uid="uid://cnexeijychkll" path="res://World/world.tscn" id="1_wgw03"]
 [ext_resource type="PackedScene" uid="uid://cd6jcl20khgyf" path="res://Goal/goal.tscn" id="2_mgkcf"]
 [ext_resource type="PackedScene" uid="uid://b0fuclmjow86b" path="res://Paddle/paddle.tscn" id="3_58kbs"]
 [ext_resource type="PackedScene" uid="uid://cull833l5nuqp" path="res://Paddle/controllers/player_paddle_controller.tscn" id="4_fxn4u"]
 [ext_resource type="PackedScene" uid="uid://dq5korusp4lv3" path="res://Ball/ball.tscn" id="5_7ddw6"]
 [ext_resource type="PackedScene" uid="uid://bgugp4up576wn" path="res://ui/ui.tscn" id="6_ie3hu"]
+[ext_resource type="PackedScene" uid="uid://dictko6ob1jwp" path="res://ui/PauseMenu/pause_menu.tscn" id="7_w8i4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1cn8"]
 size = Vector2(173, 1080)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_mxu7i")
 
 [node name="World" parent="." instance=ExtResource("1_wgw03")]
 
@@ -55,3 +58,6 @@ radius = 10.0
 speed = 500.0
 
 [node name="UI" parent="." instance=ExtResource("6_ie3hu")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_w8i4v")]
+visible = false

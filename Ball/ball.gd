@@ -9,6 +9,7 @@ var vector_radius : Vector2
 		_update_radius()
 		
 @export_range(10, 500, 10, "suffix:px/s") var speed: float = 100
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready():
 	$ColoredCircle.color = Color.WHITE
@@ -32,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	
 	if (collision):
+		audio_stream_player_2d.play()
 		velocity = velocity.bounce(collision.get_normal())
 
 func _random_angle() -> float:
