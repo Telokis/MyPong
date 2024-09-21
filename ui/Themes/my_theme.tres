@@ -1,7 +1,70 @@
-[gd_resource type="Theme" format=3 uid="uid://cw45l3bp8f0il"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cw45l3bp8f0il"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6850g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmghn"]
+bg_color = Color(0.0816668, 0.7, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iod5q"]
+bg_color = Color(0.0700001, 0.6, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wixdq"]
+bg_color = Color(0.0933334, 0.8, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3nyq"]
+bg_color = Color(0, 0, 0, 0.196078)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia2fs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckbx4"]
+bg_color = Color(0.7, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nmjf"]
+bg_color = Color(0.6, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdxot"]
+bg_color = Color(0.8, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 
 [resource]
+GreenButton/base_type = &"Button"
+GreenButton/font_sizes/font_size = 50
+GreenButton/styles/focus = SubResource("StyleBoxEmpty_6850g")
+GreenButton/styles/hover = SubResource("StyleBoxFlat_jmghn")
+GreenButton/styles/normal = SubResource("StyleBoxFlat_iod5q")
+GreenButton/styles/pressed = SubResource("StyleBoxFlat_wixdq")
 HugeButton/base_type = &"Button"
 HugeButton/font_sizes/font_size = 74
 HugeLabel/base_type = &"Label"
 HugeLabel/font_sizes/font_size = 80
+Label/font_sizes/font_size = 50
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_w3nyq")
+RedButton/base_type = &"Button"
+RedButton/font_sizes/font_size = 50
+RedButton/styles/focus = SubResource("StyleBoxEmpty_ia2fs")
+RedButton/styles/hover = SubResource("StyleBoxFlat_ckbx4")
+RedButton/styles/normal = SubResource("StyleBoxFlat_8nmjf")
+RedButton/styles/pressed = SubResource("StyleBoxFlat_hdxot")

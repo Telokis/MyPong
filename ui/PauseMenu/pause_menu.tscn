@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dictko6ob1jwp"]
+[gd_scene load_steps=6 format=3 uid="uid://dictko6ob1jwp"]
 
 [ext_resource type="Script" path="res://ui/PauseMenu/pause_menu.gd" id="1_d2108"]
 [ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_su71u"]
 [ext_resource type="Shader" path="res://ui/PauseMenu/blur.gdshader" id="2_eq8l5"]
+[ext_resource type="PackedScene" uid="uid://ci0lql3qqjhfx" path="res://ui/ConfirmModal/confirm_modal.tscn" id="4_jvunp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3xd4"]
 shader = ExtResource("2_eq8l5")
@@ -65,11 +66,20 @@ theme = ExtResource("1_su71u")
 theme_type_variation = &"HugeButton"
 text = "Resume"
 
+[node name="MainMenuButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_su71u")
+theme_type_variation = &"HugeButton"
+text = "Main Menu"
+
 [node name="ExitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_su71u")
 theme_type_variation = &"HugeButton"
-text = "Exit"
+text = "Exit to desktop"
 
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_unpause"]
+[node name="ConfirmModal" parent="." instance=ExtResource("4_jvunp")]
+unique_name_in_owner = true
+visible = false

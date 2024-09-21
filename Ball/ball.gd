@@ -14,8 +14,6 @@ var vector_radius : Vector2
 func _ready():
 	$ColoredCircle.color = Color.WHITE
 	_update_radius()
-	for i in range(100):
-		print(rad_to_deg(_random_angle()))
 
 func _update_radius():
 	var collision_shape_2d: CollisionShape2D = $CollisionShape2D
