@@ -1,21 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci0lql3qqjhfx"]
+[gd_scene load_steps=5 format=3 uid="uid://ci0lql3qqjhfx"]
 
 [ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_3ofst"]
 [ext_resource type="Script" path="res://ui/ConfirmModal/confirm_modal.gd" id="1_we5ad"]
+[ext_resource type="Shader" path="res://ui/PauseMenu/blur.gdshader" id="1_wfndm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jiic"]
-bg_color = Color(0.201527, 0.201527, 0.201527, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_bottom_left = 3
-shadow_color = Color(0, 0, 0, 0.097)
-shadow_size = 20
-shadow_offset = Vector2(0, 2)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8a6vb"]
+shader = ExtResource("1_wfndm")
+shader_parameter/lod = 1.0
 
 [node name="ConfirmModal" type="ColorRect"]
 process_mode = 3
+material = SubResource("ShaderMaterial_8a6vb")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,7 +34,8 @@ offset_right = 375.0
 offset_bottom = 135.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0jiic")
+theme = ExtResource("1_3ofst")
+theme_type_variation = &"RootPanelContainer"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2

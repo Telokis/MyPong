@@ -13,6 +13,9 @@ shader_parameter/lod = 1.0
 process_mode = 2
 script = ExtResource("1_d2108")
 
+[node name="BackBufferCopy1" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
 [node name="Control" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_b3xd4")
 anchors_preset = 15
@@ -35,6 +38,8 @@ offset_right = 167.0
 offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_su71u")
+theme_type_variation = &"RootPanelContainer"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
@@ -79,6 +84,9 @@ layout_mode = 2
 theme = ExtResource("1_su71u")
 theme_type_variation = &"HugeButton"
 text = "Exit to desktop"
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
 [node name="ConfirmModal" parent="." instance=ExtResource("4_jvunp")]
 unique_name_in_owner = true
