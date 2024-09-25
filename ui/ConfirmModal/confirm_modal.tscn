@@ -108,3 +108,6 @@ text = "Cancel"
 [node name="SpacerRight" type="Control" parent="PanelContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/HBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

@@ -91,3 +91,7 @@ copy_mode = 2
 [node name="ConfirmModal" parent="." instance=ExtResource("4_jvunp")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

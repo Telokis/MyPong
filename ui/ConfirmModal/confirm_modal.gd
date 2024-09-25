@@ -8,10 +8,6 @@ signal confirmed(bool)
 @onready var cancel_button: Button = %CancelButton
 @onready var backdrop: ColorRect = $"."
 
-func _ready():
-	ok_button.pressed.connect(_on_ok_button_pressed)
-	cancel_button.pressed.connect(_on_cancel_button_pressed)
-
 func ask_confirmation(text: String, ok_text: String, cancel_text: String) -> bool:
 	set_process_unhandled_input(true)
 	message_label.text = text
