@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Ball
 
+signal ball_launched()
+
 var vector_radius : Vector2
 @export_range(10, 100, 5) var radius: float = 20 :
 	set(value):
@@ -9,11 +11,15 @@ var vector_radius : Vector2
 		_update_radius()
 		
 @export_range(10, 500, 10, "suffix:px/s") var speed: float = 100
+
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	$ColoredCircle.color = Color.WHITE
 	_update_radius()
+	_center_ball()
+	_set_random_velocity()
 
 func _update_radius():
 	var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -23,11 +29,11 @@ func _update_radius():
 	shape.radius = radius
 	colored_circle.radius = radius
 
+func _set_random_velocity():
+	velocity = speed * Vector2.from_angle(_random_angle())
+	ball_launched.emit()
+
 func _physics_process(delta: float) -> void:
-	if (velocity == Vector2.ZERO):
-		_center_ball()
-		velocity = speed * Vector2.from_angle(_random_angle())
-	
 	var collision = move_and_collide(velocity * delta)
 	
 	if (collision):
@@ -50,7 +56,14 @@ func _center_ball() -> void:
 	var viewport_size = get_viewport().get_visible_rect().size
 	var center_position = viewport_size / 2
 	position = center_position - vector_radius
+	force_update_transform()
 
 func reset() -> void:
 	velocity = Vector2.ZERO
-	_center_ball()
+	animation_player.play("score")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "score": # The animation when a point is scored
+		scale = Vector2(1.0, 1.0)
+		_center_ball()
+		_set_random_velocity()

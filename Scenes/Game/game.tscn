@@ -61,3 +61,6 @@ speed = 500.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_w8i4v")]
 visible = false
+
+[connection signal="ball_launched" from="Ball" to="LeftSide/LeftGoal" method="_on_ball_launched"]
+[connection signal="ball_launched" from="Ball" to="RightSide/RightGoal" method="_on_ball_launched"]

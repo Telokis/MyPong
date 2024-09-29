@@ -11,6 +11,8 @@ enum Player {
 var score_left = 0
 var score_right = 0
 
+var target_score = 5
+
 func getPlayerScore(player: Player) -> int:
 	if player == Player.LEFT:
 		return score_left
@@ -26,3 +28,8 @@ func setPlayerScore(player: Player, score: int) -> void:
 
 func increasePlayerScore(player: Player, increase: int = 1) -> void:
 	setPlayerScore(player, getPlayerScore(player) + increase)
+
+func stringifyPlayer(player: Player) -> String:
+	if player == Player.LEFT:
+		return "left"
+	return "right"

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ci0lql3qqjhfx" path="res://ui/ConfirmModal/confirm_modal.tscn" id="3_77t5v"]
 
 [sub_resource type="Gradient" id="Gradient_p8gx4"]
-colors = PackedColorArray(0.0705882, 0.164706, 0.435294, 1, 0, 0.470588, 0.772549, 1)
+colors = PackedColorArray(2.40654e-08, 0.265955, 0.450351, 1, 0, 0.470588, 0.772549, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_w8xcw"]
 noise_type = 0
@@ -91,6 +91,70 @@ layout_mode = 2
 theme_type_variation = &"HugeButton"
 text = "Quit"
 
+[node name="ColorRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_mrkqe")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TitleLabel" type="Label" parent="ColorRect2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lpmow")
+theme_type_variation = &"HugeLabel"
+theme_override_font_sizes/font_size = 150
+text = "MyPong"
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PlayButton" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HugeButton"
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HugeButton"
+text = "Settings
+"
+
+[node name="ExitButton" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HugeButton"
+text = "Quit"
+
 [node name="ConfirmModal" parent="." instance=ExtResource("3_77t5v")]
 unique_name_in_owner = true
 visible = false
@@ -99,3 +163,6 @@ layout_mode = 1
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ColorRect2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ColorRect2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ColorRect2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
