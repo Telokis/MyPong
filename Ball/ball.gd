@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Ball
 
-signal ball_launched()
-
 var vector_radius : Vector2
 @export_range(10, 100, 5) var radius: float = 20 :
 	set(value):
@@ -31,7 +29,6 @@ func _update_radius():
 
 func _set_random_velocity():
 	velocity = speed * Vector2.from_angle(_random_angle())
-	ball_launched.emit()
 
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
