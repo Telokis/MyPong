@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/PauseMenu/pause_menu.gd" id="1_d2108"]
 [ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_su71u"]
-[ext_resource type="Shader" path="res://ui/PauseMenu/blur.gdshader" id="2_eq8l5"]
+[ext_resource type="Shader" path="res://ui/blur.gdshader" id="2_eq8l5"]
 [ext_resource type="PackedScene" uid="uid://ci0lql3qqjhfx" path="res://ui/ConfirmModal/confirm_modal.tscn" id="4_jvunp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3xd4"]

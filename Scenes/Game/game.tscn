@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dictko6ob1jwp" path="res://ui/PauseMenu/pause_menu.tscn" id="7_w8i4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1cn8"]
-size = Vector2(173, 1080)
+size = Vector2(123, 1080)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mxu7i")
@@ -20,7 +20,7 @@ script = ExtResource("1_mxu7i")
 [node name="LeftSide" type="Node" parent="."]
 
 [node name="LeftGoal" parent="LeftSide" instance=ExtResource("2_mgkcf")]
-position = Vector2(87, 540)
+position = Vector2(65, 540)
 scores_for = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSide/LeftGoal"]
@@ -50,6 +50,7 @@ down_input = "move_down2"
 position = Vector2(1833, 540)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightSide/RightGoal"]
+position = Vector2(21, 0)
 shape = SubResource("RectangleShape2D_g1cn8")
 
 [node name="Ball" parent="." instance=ExtResource("5_7ddw6")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_3ofst"]
 [ext_resource type="Script" path="res://ui/ConfirmModal/confirm_modal.gd" id="1_we5ad"]
-[ext_resource type="Shader" path="res://ui/PauseMenu/blur.gdshader" id="1_wfndm"]
+[ext_resource type="Shader" path="res://ui/blur.gdshader" id="1_wfndm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8a6vb"]
 shader = ExtResource("1_wfndm")

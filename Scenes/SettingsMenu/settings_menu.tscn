@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy2cvntqgckn8"]
+
+[ext_resource type="Script" path="res://Scenes/SettingsMenu/settings_menu.gd" id="1_ab46c"]
+[ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_gprjf"]
+
+[sub_resource type="Gradient" id="Gradient_p8gx4"]
+offsets = PackedFloat32Array(0, 0.701299, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.356863, 0.772549, 1, 0.6, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w8xcw"]
+noise_type = 2
+frequency = 0.0644
+fractal_type = 2
+fractal_weighted_strength = 1.0
+cellular_distance_function = 1
+cellular_return_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_25crg"]
+width = 2048
+height = 2048
+normalize = false
+color_ramp = SubResource("Gradient_p8gx4")
+noise = SubResource("FastNoiseLite_w8xcw")
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ab46c")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_25crg")
+stretch_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -329.5
+offset_right = 332.0
+offset_bottom = 329.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gprjf")
+theme_type_variation = &"RootPanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SettingsLabel" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_gprjf")
+theme_type_variation = &"HugeLabel"
+theme_override_font_sizes/font_size = 120
+text = "Settings"
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MasterVolumeLabel" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master volume
+"
+
+[node name="MasterVolumeHSlider" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"HugeButton"
+text = "Back"
+
+[connection signal="value_changed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/MasterVolumeHSlider" to="." method="_on_master_volume_h_slider_value_changed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
