@@ -17,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+focus_mode = 2
 theme = ExtResource("1_3ofst")
 color = Color(0.1672, 0.19912, 0.38, 0.345098)
 script = ExtResource("1_we5ad")

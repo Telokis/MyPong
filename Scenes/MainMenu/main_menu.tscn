@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bti5458kp6dy4"]
+[gd_scene load_steps=8 format=3 uid="uid://bti5458kp6dy4"]
 
 [ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_lpmow"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="2_8oj4s"]
 [ext_resource type="PackedScene" uid="uid://ci0lql3qqjhfx" path="res://ui/ConfirmModal/confirm_modal.tscn" id="3_77t5v"]
+[ext_resource type="PackedScene" uid="uid://cy2cvntqgckn8" path="res://Scenes/SettingsMenu/settings_menu.tscn" id="4_x1ffm"]
 
 [sub_resource type="Gradient" id="Gradient_pkar4"]
 offsets = PackedFloat32Array(0, 0.701299, 1)
@@ -30,10 +31,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 theme = ExtResource("1_lpmow")
 script = ExtResource("2_8oj4s")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="Menu" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +46,7 @@ grow_vertical = 2
 texture = SubResource("NoiseTexture2D_mrkqe")
 stretch_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,15 +61,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"RootPanelContainer"
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TitleLabel" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="Menu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_lpmow")
 theme_type_variation = &"HugeLabel"
@@ -74,29 +77,29 @@ theme_override_font_sizes/font_size = 150
 text = "MyPong"
 uppercase = true
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PlayButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HugeButton"
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HugeButton"
 text = "Settings
 "
 
-[node name="ExitButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HugeButton"
 text = "Quit"
@@ -106,6 +109,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="SettingsMenu" parent="." instance=ExtResource("4_x1ffm")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
