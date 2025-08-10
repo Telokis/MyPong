@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfevemlkuk3sl"]
 
-[ext_resource type="Script" path="res://Scenes/Tests/AngleTest/angle_test.gd" id="1_vi4j6"]
+[ext_resource type="Script" uid="uid://cthvfeay4s3kd" path="res://Scenes/Tests/AngleTest/angle_test.gd" id="1_vi4j6"]
 [ext_resource type="PackedScene" uid="uid://txb0358c4op7" path="res://ColoredCircle/colored_circle.tscn" id="1_wcb14"]
 
 [node name="AngleTest" type="Node2D"]

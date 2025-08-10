@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cd6jcl20khgyf"]
 
-[ext_resource type="Script" path="res://Goal/goal.gd" id="1_tcod8"]
+[ext_resource type="Script" uid="uid://cfdb4d2c17xjr" path="res://Goal/goal.gd" id="1_tcod8"]
 
 [node name="Goal" type="Area2D"]
 collision_layer = 8

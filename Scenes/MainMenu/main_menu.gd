@@ -16,6 +16,10 @@ func _on_settings_button_pressed() -> void:
 	menu.hide()
 	settings_menu.show()
 
+func _on_settings_menu_back_requested() -> void:
+	settings_menu.hide()
+	menu.show()
+
 
 func _on_exit_button_pressed() -> void:
 	var confirmed = await confirm_modal.ask_confirmation("Do you really want to quit?", "Yes", "No")

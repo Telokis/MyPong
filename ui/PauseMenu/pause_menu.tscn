@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dictko6ob1jwp"]
 
-[ext_resource type="Script" path="res://ui/PauseMenu/pause_menu.gd" id="1_d2108"]
+[ext_resource type="Script" uid="uid://cewlplbsc34v4" path="res://ui/PauseMenu/pause_menu.gd" id="1_d2108"]
 [ext_resource type="Theme" uid="uid://cw45l3bp8f0il" path="res://ui/Themes/my_theme.tres" id="1_su71u"]
-[ext_resource type="Shader" path="res://ui/blur.gdshader" id="2_eq8l5"]
+[ext_resource type="Shader" uid="uid://0f8y0v8bve17" path="res://ui/blur.gdshader" id="2_eq8l5"]
 [ext_resource type="PackedScene" uid="uid://ci0lql3qqjhfx" path="res://ui/ConfirmModal/confirm_modal.tscn" id="4_jvunp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3xd4"]
@@ -13,7 +13,7 @@ shader_parameter/lod = 1.0
 process_mode = 2
 script = ExtResource("1_d2108")
 
-[node name="BackBufferCopy1" type="BackBufferCopy" parent="."]
+[node name="BackBufferCopy_Main" type="BackBufferCopy" parent="."]
 copy_mode = 2
 
 [node name="Control" type="ColorRect" parent="."]
@@ -85,7 +85,7 @@ theme = ExtResource("1_su71u")
 theme_type_variation = &"HugeButton"
 text = "Exit to desktop"
 
-[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+[node name="BackBufferCopy_ForConfirm" type="BackBufferCopy" parent="."]
 copy_mode = 2
 
 [node name="ConfirmModal" parent="." instance=ExtResource("4_jvunp")]

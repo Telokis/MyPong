@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dq5korusp4lv3"]
 
-[ext_resource type="Script" path="res://Ball/ball.gd" id="1_fhtcm"]
+[ext_resource type="Script" uid="uid://c0rxvjgqmc7y3" path="res://Ball/ball.gd" id="1_fhtcm"]
 [ext_resource type="PackedScene" uid="uid://txb0358c4op7" path="res://ColoredCircle/colored_circle.tscn" id="2_nip3o"]
 [ext_resource type="AudioStream" uid="uid://mbhilxy3l0mo" path="res://Audio/SFX/BallBeeps/Beep1.wav" id="3_checn"]
 
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_costy"]
 _data = {
-"RESET": SubResource("Animation_5vmxi"),
-"score": SubResource("Animation_7x0m5")
+&"RESET": SubResource("Animation_5vmxi"),
+&"score": SubResource("Animation_7x0m5")
 }
 
 [node name="Ball" type="CharacterBody2D"]
@@ -72,7 +72,7 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_costy")
+&"": SubResource("AnimationLibrary_costy")
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

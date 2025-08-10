@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://txb0358c4op7"]
 
-[ext_resource type="Script" path="res://ColoredCircle/colored_circle.gd" id="1_ik770"]
+[ext_resource type="Script" uid="uid://c5uexauwmor6m" path="res://ColoredCircle/colored_circle.gd" id="1_ik770"]
 
 [node name="ColoredCircle" type="Control"]
 layout_mode = 3
